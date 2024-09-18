@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viraj Tupe - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1e1e1e;
+            color: #f4f4f4;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            background-image: url('Portfolio Backdrop.jpg');
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        nav ul li a {
+            color: #f4f4f4;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            padding: 10px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00ccff;
+        }
+
+        .header-content h1 {
+            font-size: 4rem;
+            margin: 0;
+            z-index: 1;
+            position: relative;
+        }
+
+        .header-content p {
+            font-size: 1.5rem;
+            margin-top: 10px;
+            z-index: 1;
+            position: relative;
+        }
+
+        .highlight {
+            color: #00ccff;
+        }
+
+        .cta-button {
+            background-color: #00ccff;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            display: inline-block;
+            z-index: 1;
+            position: relative;
+            transition: background-color 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .cta-button:hover {
+            background-color: #0066ff;
+        }
+
+        .section {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: #2e2e2e;
+            margin: 40px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .section h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: #f4f4f4;
+        }
+
+        .section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .skills-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 60px;
+        }
+
+        .skill {
+            text-align: center;
+        }
+
+        .skill img {
+            width: 80px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .skill p {
+            font-size: 1.1rem;
+            color: #f4f4f4;
+        }
+
+        .project-gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .project-item {
+            background-color: #333;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .project-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #f4f4f4;
+        }
+
+        .project-item p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #bbb;
+        }
+
+        .project-item a {
+            color: #00ccff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .project-item a:hover {
+            color: #0099cc;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: #00ccff;
+            border-radius: 4px;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-bottom: 40px;
+            width: 100%;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            padding-left: 0;
+            padding-right: 40px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -22px;
+            width: 50px;
+            height: 50px;
+            background-color: #333;
+            border: 2px solid #00ccff;
+            border-radius: 50%;
+        }
+
+        .timeline-content {
+            background-color: #444;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            max-width: 400px;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #f4f4f4;
+        }
+
+        .timeline-content p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #bbb;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 40px;
+            background-color: #333;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            max-width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #555;
+            font-size: 1.1rem;
+            background-color: #444;
+            color: #f4f4f4;
+        }
+
+        .contact-form button {
+            background-color: #00ccff;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .contact-form button:hover {
+            background-color: #0066ff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #333;
+            color: white;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #00ccff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            color: #0099cc;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#timeline">Timeline</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-content">
+            <h1>Hello, I'm <span class="highlight">Viraj Tupe</span></h1>
+            <p>Welcome to my portfolio. I specialize in <span class="highlight">programming</span> and <span class="highlight">video editing</span>.</p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+        </div>
+    </header>
+
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        <p>Hello! I'm Viraj Tupe, a BCA student from Maharashtra, passionate about programming and video editing. I love working on projects that challenge my skills and help me grow.</p>
+    </section>
+
+    <section id="skills" class="section">
+        <h2>Skills</h2>
+        <div class="skills-list">
+            <div class="skill">
+                <img src="cpp.png" alt="C++">
+                <p>C++</p>
+            </div>
+            <div class="skill">
+                <img src="python.png" alt="Python">
+                <p>Python</p>
+            </div>
+            <div class="skill">
+                <img src="java.png" alt="Java">
+                <p>Java</p>
+            </div>
+            <div class="skill">
+                <img src="html.png" alt="HTML & CSS">
+                <p>HTML & CSS</p>
+            </div>
+            <div class="skill">
+                <img src="js.png" alt="JavaScript">
+                <p>JavaScript</p>
+            </div>
+            <div class="skill">
+                <img src="editing.jpeg" alt="Video Editing">
+                <p>Video Editing</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <h2>Projects</h2>
+        <div class="project-gallery">
+            <div class="project-item">
+                <img src="Guess.jpg" alt="Number Guessing Game">
+                <h3>Number Guessing Game</h3>
+                <p>A simple number guessing game developed in C++. Users try to guess a randomly generated number within a certain range.</p>
+                <a href="https://www.linkedin.com/posts/viraj-tupe-a87a15247_codsoft-coding-programming-activity-7225563798714085376-aygs?utm_source=share&utm_medium=member_desktop" target="_blank">View Project</a>
+            </div>
+            <div class="project-item">
+                <img src="download.jpeg" alt="To-Do List">
+                <h3>To-Do List</h3>
+                <p>A task management application created in C++ that allows users to add, view, and delete tasks.</p>
+                <a href="https://www.linkedin.com/posts/viraj-tupe-a87a15247_codsoft-coding-programming-activity-7224775354681331712-_BT9?utm_source=share&utm_medium=member_desktop" target="_blank">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="timeline" class="section">
+        <h2>Timeline</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Ongoing</h3>
+                    <p>Started creating a unique program inspired by a YouTube video to upload to an organization.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>10 August 2024</h3>
+                    <p>Working on a fully detailed and beautifully filled portfolio website to submit as a project.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>3 August 2024</h3>
+                    <p>Participated in Codsoft programs, including two projects: Number Guessing Game and To-Do List.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>20 July 2022</h3>
+                    <p>Completed DCA certification from MSMCE.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>12 January 2022</h3>
+                    <p>Completed CCC Exam certification from NIELIT.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Contact</h2>
+        <form class="contact-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Viraj Tupe. All rights reserved.</p>
+        <p>Connect with me on <a href="https://www.linkedin.com/in/viraj-tupe-a87a15247" target="_blank">LinkedIn</a>.</p>
+    </footer>
+</body>
+
+</html>

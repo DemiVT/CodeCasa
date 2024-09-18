@@ -1,0 +1,173 @@
+/* styles.css */
+
+/* Define CSS variables for light and dark themes */
+:root {
+    --background-color: #f0f4f8;
+    --container-bg: #ffffff;
+    --title-color: #333333;
+    --cell-bg: #f9f9f9;
+    --cell-border: #ccc;
+    --cell-hover: #ddd;
+    --status-color: #333333;
+    --btn-bg: #007bff;
+    --btn-hover-bg: #0056b3;
+    --toggle-bg: #ccc;
+    --toggle-ball: #fff;
+}
+
+body.dark {
+    --background-color: #121212;
+    --container-bg: #1e1e1e;
+    --title-color: #f0f0f0;
+    --cell-bg: #2c2c2c;
+    --cell-border: #555;
+    --cell-hover: #444;
+    --status-color: #f0f0f0;
+    --btn-bg: #bb86fc;
+    --btn-hover-bg: #985eff;
+    --toggle-bg: #555;
+    --toggle-ball: #121212;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    text-align: center;
+    background: var(--container-bg);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 320px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 2em;
+    margin: 0;
+    color: var(--title-color);
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+}
+
+.toggle-label {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.toggle-label input {
+    display: none;
+}
+
+.toggle-label .toggle-ball {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--toggle-ball);
+    border-radius: 50%;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.toggle-label::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--toggle-bg);
+    border-radius: 34px;
+    transition: background-color 0.3s;
+}
+
+input:checked + .toggle-label .toggle-ball {
+    transform: translateX(26px);
+}
+
+input:checked + .toggle-label::after {
+    background-color: var(--toggle-bg);
+}
+
+.toggle-text {
+    color: var(--title-color);
+    font-size: 0.9em;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: var(--cell-bg);
+    border: 2px solid var(--cell-border);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+    color: var(--title-color);
+}
+
+.cell:hover {
+    background-color: var(--cell-hover);
+}
+
+.status-message {
+    font-size: 1.2em;
+    color: var(--status-color);
+    min-height: 1.5em;
+}
+
+.btn {
+    background-color: var(--btn-bg);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--btn-hover-bg);
+}
+
+@media (max-width: 500px) {
+    .game-board {
+        grid-template-columns: repeat(3, 80px);
+    }
+    .cell {
+        width: 80px;
+        height: 80px;
+    }
+}

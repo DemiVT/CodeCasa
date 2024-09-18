@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">Tic Tac Toe</h1>
+            <div class="theme-toggle">
+                <input type="checkbox" id="themeSwitch">
+                <label for="themeSwitch" class="toggle-label">
+                    <span class="toggle-ball"></span>
+                </label>
+                <span class="toggle-text">Dark Mode</span>
+            </div>
+        </div>
+        <div class="game-board">
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+            <div class="cell" data-cell></div>
+        </div>
+        <h2 class="status-message" id="statusMessage"></h2>
+        <button id="restartButton" class="btn">Restart Game</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
